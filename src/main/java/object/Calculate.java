@@ -2,6 +2,9 @@ package object;
 
 
 
+
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -64,12 +67,14 @@ public class Calculate {
 	WebElement myResultBtnWebElement;
 
 	// Page 1
-	private void getTitle() {
-		commons.getTitle(driver);
+	private void getTitle(String expectedTtile) {
+		assertEquals(commons.getTitle(driver),expectedTtile);
+		//Car Insurance Coverage Calculator | Liberty Mutual
 	}
 
-	private void getH1() {
-		commons.getText(header1WebElement);
+	private  void getH1(String expectedHeader1) {
+	assertEquals(commons.getText(header1WebElement),expectedHeader1 );
+		//Car insurance coverage calculator
 	}
 
 	private void inputZip(String zip) {
@@ -131,10 +136,10 @@ public class Calculate {
 	}
 
 	// Page1
-	public void calculateSteps1(String expectedUrl, String zip, boolean isOwn, boolean isLease, boolean isFinance,
+	public void calculateSteps1(String expectedTitle, String expectedHeader1, String zip, boolean isOwn, boolean isLease, boolean isFinance,
 			boolean lessOne, boolean twoToFive, boolean moreThanFive) {
-		getTitle();
-		getH1();
+		getTitle(expectedTitle);;
+		getH1(expectedHeader1);
 		inputZip(zip);
 		isOwn(isOwn, isLease, isFinance);
 		howOld(lessOne, twoToFive, moreThanFive);
@@ -143,7 +148,6 @@ public class Calculate {
 
 	// Page2
 	public void calculateSteps2() {
-		getTitle();
 		isBtnEnabled();
 		checkBtn();
 		clickContinueSubmitBtn();
@@ -157,13 +161,10 @@ public class Calculate {
 
 	// For data driven Testing
 	public void calculateSteps(CalculateData calculateData) {
-		getTitle();
-		getH1();
 		inputZip(calculateData.getZip());
 		isOwn(calculateData.isOwn(), calculateData.isLease(), calculateData.isFinance());
 		howOld(calculateData.isLessOne(), calculateData.isTwoToFive(), calculateData.isMoreThanFive());
 		clickContinue();
-		getTitle();
 		isBtnEnabled();
 		checkBtn();
 		clickContinueSubmitBtn();

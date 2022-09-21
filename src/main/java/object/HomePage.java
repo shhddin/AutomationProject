@@ -50,7 +50,7 @@ public class HomePage {
 	WebElement calculatorWebElement;
 
 	private void getTitle(String expected) {
-		assertEquals(expected, commons.getText(title1Element));
+		assertEquals(commons.getText(title1Element),expected);
 	}
 
 	private void selectAuto() {
@@ -66,7 +66,7 @@ public class HomePage {
 	}
 
 	private void getTextDenied(String expectedH1) {
-		assertEquals(expectedH1, commons.getText(deniedH1Element));
+		assertEquals(commons.getText(deniedH1Element),expectedH1);
 	}
 
 	private void isElementDisplayed() {
