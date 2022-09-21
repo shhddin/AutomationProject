@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import base.BaseClass;
 import utils.CalculateData;
 
-public class IteratorCalculateTest extends BaseClass{
+public class ParameterizedIteratorCalculateTest extends BaseClass{
 	
 	@DataProvider(name="calculateIterator")
 	public Iterator<CalculateData> calculateDataIterator(){

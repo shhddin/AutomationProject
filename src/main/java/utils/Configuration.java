@@ -6,37 +6,38 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Configuration {
+
+	private static Configuration configuration;
 	private Properties properties;
 	private final String defaultPath = "configuration/configure.properties";
-
-	public Configuration(String path) {
-		if (path == null || path.length() < 11) {
-			loadProperty(defaultPath);
-		} else {
-			loadProperty(path);
-		}
+	
+	private Configuration() {
+		loadProperty();
 	}
 
-	private void loadProperty(String path) {
-
+	private void loadProperty() {
+		properties = new Properties();
 		try {
-
-			InputStream inputStream = new FileInputStream(path);
-			properties = new Properties();
-			properties.load(inputStream);
-			inputStream.close();
+			InputStream iStream = new FileInputStream(defaultPath);
+			properties.load(iStream);
+			iStream.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
-	public String getConfiguration(String key) {
-		if (key != null) {
-			return properties.getProperty(key);
-		} else {
-			return null;
+	
+	public static Configuration getInstance() {
+		if(configuration == null) {
+			configuration = new Configuration();
 		}
-
+		return configuration;
 	}
 	
+	public String getConfiguration(String key) {
+		if(key != null) {
+			return properties.getProperty(key);
+		}else {
+			return null;
+		}
+	}
 }

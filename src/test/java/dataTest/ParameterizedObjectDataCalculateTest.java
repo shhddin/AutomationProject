@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import base.BaseClass;
 import utils.CalculateData;
 
-public class ObjectDataCalculateTest extends BaseClass {
+public class ParameterizedObjectDataCalculateTest extends BaseClass {
 
 	@DataProvider(name = "calculateObject")
 	public Object[][] calculateDataObject() {

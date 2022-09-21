@@ -1,17 +1,23 @@
 package commons;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import com.google.common.io.Files;
 
 import reporting.Loggers;
 
@@ -45,11 +51,12 @@ public class Commons {
 			Assert.fail();
 		}
 	}
+
 	public void inputValuesEnter(WebElement element, String value) {
 		try {
-			element.sendKeys(value,Keys.ENTER);
+			element.sendKeys(value, Keys.ENTER);
 			Loggers.getLog(value + "-----This value passed into the --" + element);
-			
+
 		} catch (NullPointerException | NoSuchElementException e) {
 			e.printStackTrace();
 			Loggers.getLog(element + "----------: This element Not Found---------");
@@ -143,7 +150,7 @@ public class Commons {
 			return false;
 		}
 	}
-	
+
 	public boolean isDisplayed(WebElement element) {
 		boolean isElementDisplayed = false;
 		try {
@@ -157,9 +164,26 @@ public class Commons {
 		return isElementDisplayed;
 	}
 
+	public String getScreenshot(String testName) {
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("MMddyyyy_hh.mm.ss");
+		String extension = format.format(date);
+		File file = new File("screenShots/" + testName + "_" + extension + ".png");
+		TakesScreenshot ss = (TakesScreenshot) driver;
+		File outPutFile = ss.getScreenshotAs(OutputType.FILE);
+		try {
+			Files.copy(outPutFile, file.getAbsoluteFile());
+			Loggers.getLog("Test has been failed \nScreenshot taken here ---> " + file.getAbsolutePath());
+		} catch (Exception e) {
+			e.printStackTrace();
+			Loggers.getLog("Error while taking screenshot");
+		}
+		return file.getAbsolutePath();
+	}
+
 	public void jse(WebElement element, WebDriver driver) {
 		JavascriptExecutor jscExecutor = (JavascriptExecutor) driver;
 		jscExecutor.executeScript("arguments[0].isEnabled()", element);
-
 	}
+	
 }
