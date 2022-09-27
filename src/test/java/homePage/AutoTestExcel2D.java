@@ -3,7 +3,6 @@ package homePage;
 import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
 import base.BaseClass;
-import utils.AutoData;
 import utils.ExcelUtil;
 
 public class AutoTestExcel2D extends BaseClass {
@@ -17,8 +16,14 @@ public class AutoTestExcel2D extends BaseClass {
 	}
 
 	@Test(enabled = true, dataProvider = "autoExcel")
-	public void getQuote(AutoData autoData) {
-		homePage.autoQuoteSteps(autoData);
+	public void getQuote(String title, String zipCode, String denied) {
+		homePage.autoQuoteSteps(title, zipCode, denied);
 
 	}
+	
+	/*
+	 * @Test public void test2() { for(Object[] objectArr : autoData()) {
+	 * System.err.println(objectArr.length); for(Object object : objectArr) {
+	 * System.out.print(object + "---"); } System.err.println(); } }
+	 */
 }
