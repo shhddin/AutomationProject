@@ -50,7 +50,7 @@ public class HomePage {
 	WebElement calculatorWebElement;
 
 	private void getTitle(String expected) {
-		assertEquals(commons.getText(title1Element),expected);
+		assertEquals(commons.getText(title1Element), expected);
 	}
 
 	private void selectAuto() {
@@ -66,7 +66,7 @@ public class HomePage {
 	}
 
 	private void getTextDenied(String expectedH1) {
-		assertEquals(commons.getText(deniedH1Element),expectedH1);
+		assertEquals(commons.getText(deniedH1Element), expectedH1);
 	}
 
 	private void isElementDisplayed() {
@@ -91,7 +91,7 @@ public class HomePage {
 		clickGetMyPriceButton();
 		getTextDenied(expectedH1);
 	}
-	
+
 	public void autoQuoteSteps(AutoData autoData) {
 		getTitle(autoData.getExpectedTitle());
 		selectAuto();
@@ -99,15 +99,15 @@ public class HomePage {
 		clickGetMyPriceButton();
 		getTextDenied(autoData.getExpectedH1());
 	}
-	
-	public void autoQuoteSteps(Map<String, String>map) {
+
+	public void autoQuoteSteps(Map<String, String> map) {
 		getTitle(map.get(Title.getValue()));
 		selectAuto();
 		inputZipcode(map.get(ZipCode.getValue()));
 		clickGetMyPriceButton();
 		getTextDenied(map.get(TextDenied.name()));
 	}
-	
+
 	public void homepageCalculate() {
 		moveToCalc();
 	}

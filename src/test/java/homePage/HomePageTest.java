@@ -10,9 +10,7 @@ public class HomePageTest extends BaseClass {
 	@Test(enabled = true, priority = 1)
 	public void autoTestingS(String Zip) {
 		homePage.homePageElement();
-		homePage.autoQuoteSteps("Only pay for what you need", Zip, "Access Denied" );
-		
-
+		homePage.autoQuoteSteps("Only pay for what you need", Zip, "Access Denied");
 	}
-	
+
 }

@@ -1,8 +1,5 @@
 package object;
 
-
-
-
 import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
@@ -68,13 +65,13 @@ public class Calculate {
 
 	// Page 1
 	private void getTitle(String expectedTtile) {
-		assertEquals(commons.getTitle(driver),expectedTtile);
-		//Car Insurance Coverage Calculator | Liberty Mutual
+		assertEquals(commons.getTitle(driver), expectedTtile);
+		// Car Insurance Coverage Calculator | Liberty Mutual
 	}
 
-	private  void getH1(String expectedHeader1) {
-	assertEquals(commons.getText(header1WebElement),expectedHeader1 );
-		//Car insurance coverage calculator
+	private void getH1(String expectedHeader1) {
+		assertEquals(commons.getText(header1WebElement), expectedHeader1);
+		// Car insurance coverage calculator
 	}
 
 	private void inputZip(String zip) {
@@ -136,9 +133,10 @@ public class Calculate {
 	}
 
 	// Page1
-	public void calculateSteps1(String expectedTitle, String expectedHeader1, String zip, boolean isOwn, boolean isLease, boolean isFinance,
-			boolean lessOne, boolean twoToFive, boolean moreThanFive) {
-		getTitle(expectedTitle);;
+	public void calculateSteps1(String expectedTitle, String expectedHeader1, String zip, boolean isOwn,
+			boolean isLease, boolean isFinance, boolean lessOne, boolean twoToFive, boolean moreThanFive) {
+		getTitle(expectedTitle);
+		;
 		getH1(expectedHeader1);
 		inputZip(zip);
 		isOwn(isOwn, isLease, isFinance);

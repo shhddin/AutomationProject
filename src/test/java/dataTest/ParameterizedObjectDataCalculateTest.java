@@ -14,7 +14,6 @@ public class ParameterizedObjectDataCalculateTest extends BaseClass {
 		CalculateData calculateData2 = new CalculateData("19149", false, false, true, true, false, false);
 
 		return new Object[][] { { calculateData1 }, { calculateData2 } };
-
 	}
 
 	@Test(dataProvider = "calculateObject")

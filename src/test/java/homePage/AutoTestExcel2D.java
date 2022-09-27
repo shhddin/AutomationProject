@@ -20,7 +20,7 @@ public class AutoTestExcel2D extends BaseClass {
 		homePage.autoQuoteSteps(title, zipCode, denied);
 
 	}
-	
+
 	/*
 	 * @Test public void test2() { for(Object[] objectArr : autoData()) {
 	 * System.err.println(objectArr.length); for(Object object : objectArr) {
