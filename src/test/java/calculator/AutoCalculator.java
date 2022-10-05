@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import base.BaseClass;
 
-public class AutoCalculatorGrouping extends BaseClass {
+public class AutoCalculator extends BaseClass {
 
 	@Test(enabled = true)
 	public void autoCalculator() {
