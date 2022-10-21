@@ -6,6 +6,7 @@ import org.testng.Reporter;
 import com.aventstack.extentreports.Status;
 
 public class Loggers {
+    
 	private static final java.util.logging.Logger LOGGER = java.util.logging.Logger
 			.getLogger(java.util.logging.Logger.GLOBAL_LOGGER_NAME);
 

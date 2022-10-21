@@ -6,8 +6,10 @@ import base.BaseClass;
 
 public class HomePageTest extends BaseClass {
 
-	@Parameters("Zip")
-	@Test(enabled = true, priority = 1)
+	
+    @Parameters("Zip")
+	
+    @Test 
 	public void autoTestingS(String Zip) {
 		homePage.homePageElement();
 		homePage.autoQuoteSteps("Only pay for what you need", Zip, "Access Denied");
