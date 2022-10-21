@@ -9,8 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DBConnect {
-	public static Configuration configuration = Configuration.getInstance();
+    public static Configuration configuration = Configuration.getInstance("configuration/configure.properties");
 
 public static List<List<String>> dbList() {
 	/*

@@ -169,7 +169,7 @@ public class Commons {
 		SimpleDateFormat format = new SimpleDateFormat("MMddyyyy_hh.mm.ss");
 		String extension = format.format(date);
 		File file = new File("screenShots/" + testName + "_" + extension + ".png");
-		TakesScreenshot ss = (TakesScreenshot) driver;
+		TakesScreenshot ss = (TakesScreenshot)driver;
 		File outPutFile = ss.getScreenshotAs(OutputType.FILE);
 		try {
 			Files.copy(outPutFile, file.getAbsoluteFile());
@@ -180,6 +180,7 @@ public class Commons {
 		}
 		return file.getAbsolutePath();
 	}
+
 
 	public void jse(WebElement element, WebDriver driver) {
 		JavascriptExecutor jscExecutor = (JavascriptExecutor) driver;

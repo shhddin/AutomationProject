@@ -8,17 +8,16 @@ import java.util.Properties;
 public class Configuration {
 
 	private static Configuration configuration;
-	private Properties properties;
-	private final String defaultPath = "configuration/configure.properties";
+	private static Properties properties;
 	
 	private Configuration() {
-		loadProperty();
+		
 	}
 
-	private void loadProperty() {
+	private static void loadProperty(String path) {
 		properties = new Properties();
 		try {
-			InputStream iStream = new FileInputStream(defaultPath);
+			InputStream iStream = new FileInputStream(path);
 			properties.load(iStream);
 			iStream.close();
 		} catch (IOException e) {
@@ -26,7 +25,8 @@ public class Configuration {
 		}
 	}
 	
-	public static Configuration getInstance() {
+	public static Configuration getInstance(String path) {
+	       loadProperty(path);
 		if(configuration == null) {
 			configuration = new Configuration();
 		}
